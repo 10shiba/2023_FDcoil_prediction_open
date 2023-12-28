@@ -1,12 +1,15 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import pickle
 import numpy as np
 
 
 def load_model(model_path):
     """モデルを読み込む関数"""
-    return joblib.load(model_path)
+    st.write(f"モデルを読み込み中: {model_path}")
+    with open(model_path, 'rb') as f:
+        model = pickle.load(f)
 
 
 def predict(input_data, scaler, models):
