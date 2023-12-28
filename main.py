@@ -20,10 +20,12 @@ def predict(input_data, scaler, models):
 
         # 入力データの標準化
         scaled_data = scaler.transform(input_data)
-
+        st.write('scaled_data', scaled_data)
+        
         # モデルによる予測
         predictions = {}
         for model_name, model in models.items():
+            st.write('model_name', model_name)
             if model is not None:  # モデルがNoneでないことを確認
                 predictions[model_name] = model.predict(scaled_data)[0]
             else:
