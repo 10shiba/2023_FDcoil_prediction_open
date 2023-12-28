@@ -47,9 +47,11 @@ def main():
     }
 
     # ユーザー入力
-    input_value = st.number_input("入力値 (Distal diameter)", value=5.0)
+    input_value_dd = st.number_input("入力値 (Distal diameter)", value=5.0)
+    input_value_pro = st.number_input("入力値 (Proximal diameter)", value=5.0)
+    input_value = [input_value_dd, input_value_pro]
     ## numpy配列に変換
-    input_value = np.array([[input_value]])
+    input_value = np.array(input_value)
 
     # 予測実行ボタン
     if st.button('予測実行'):
