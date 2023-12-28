@@ -21,7 +21,7 @@ def predict(input_data, scaler, models):
         # 入力データの標準化
         scaled_data = scaler.transform(input_data)
         st.write('scaled_data', scaled_data)
-        
+
         # モデルによる予測
         predictions = {}
         for model_name, model in models.items():
@@ -45,7 +45,7 @@ def main():
     scaler = load_model(f'{model_dir}/scaler.pkl')
     models = {
         'RF': load_model(f'{model_dir}/rf.pkl'),
-        'LGBM': load_model(f'{model_dir}/lgbm.pkl')
+        # 'LGBM': load_model(f'{model_dir}/lgbm.pkl')
     }
 
     # ユーザー入力
@@ -61,7 +61,7 @@ def main():
         st.markdown(f"## AIによるFDコイル予測結果")
         # 予測結果の表示
         st.write(f"RFモデルによる予測: {predictions['RF']:.03}")
-        st.write(f"LGBMモデルによる予測: {predictions['LGBM']:.03}")
+        # st.write(f"LGBMモデルによる予測: {predictions['LGBM']:.03}")
 
 if __name__ == '__main__':
     main()
